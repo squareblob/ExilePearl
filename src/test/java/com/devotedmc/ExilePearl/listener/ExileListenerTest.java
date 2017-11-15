@@ -72,7 +72,6 @@ import com.devotedmc.ExilePearl.config.PearlConfig;
 import com.devotedmc.ExilePearl.event.PlayerPearledEvent;
 import com.google.common.base.Function;
 
-@SuppressWarnings("deprecation")
 public class ExileListenerTest {
 	
 	private ExilePearlApi pearlApi;

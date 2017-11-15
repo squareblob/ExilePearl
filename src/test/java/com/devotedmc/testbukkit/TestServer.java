@@ -1,6 +1,8 @@
 package com.devotedmc.testbukkit;
 
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.when;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -28,14 +30,12 @@ import org.apache.commons.lang.Validate;
 import org.bukkit.BanList;
 import org.bukkit.BanList.Type;
 import org.bukkit.GameMode;
-import org.bukkit.NamespacedKey;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.Server;
 import org.bukkit.UnsafeValues;
 import org.bukkit.Warning.WarningState;
 import org.bukkit.World;
 import org.bukkit.WorldCreator;
-import org.bukkit.advancement.Advancement;
 import org.bukkit.boss.BarColor;
 import org.bukkit.boss.BarFlag;
 import org.bukkit.boss.BarStyle;
@@ -47,7 +47,6 @@ import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.generator.ChunkGenerator.ChunkData;
@@ -56,7 +55,6 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemFactory;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.Merchant;
 import org.bukkit.inventory.Recipe;
 import org.bukkit.map.MapView;
 import org.bukkit.permissions.Permissible;
@@ -75,6 +73,8 @@ import org.bukkit.scheduler.BukkitWorker;
 import org.bukkit.scoreboard.ScoreboardManager;
 import org.bukkit.util.CachedServerIcon;
 import org.mockito.Mockito;
+
+import com.avaje.ebean.config.ServerConfig;
 
 import net.md_5.bungee.api.chat.BaseComponent;
 
@@ -909,32 +909,20 @@ public class TestServer implements Server {
     }
 
 	@Override
-	public void reloadData() {
+	public Player[] _INVALID_getOnlinePlayers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void configureDbConfig(ServerConfig arg0) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Merchant createMerchant(String title) {
+	public boolean useExactLoginLocation() {
 		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Entity getEntity(UUID uuid) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Advancement getAdvancement(NamespacedKey key) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Iterator<Advancement> advancementIterator() {
-		// TODO Auto-generated method stub
-		return null;
+		return false;
 	}
 }

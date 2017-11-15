@@ -103,9 +103,4 @@ public class TestChunk implements Chunk {
 		return true;
 	}
 
-	@Override
-	public boolean isSlimeChunk() {
-		return false;
-	}
-
 }

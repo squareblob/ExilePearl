@@ -29,6 +29,7 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.PluginLoader;
 
+import com.avaje.ebean.EbeanServer;
 import com.devotedmc.ExilePearl.BorderHandler;
 import com.devotedmc.ExilePearl.BrewHandler;
 import com.devotedmc.ExilePearl.DamageLogger;
@@ -700,4 +701,7 @@ final class ExilePearlCore implements ExilePearlApi {
 
 		return new ArrayList<>();
 	}
+
+	@Override
+	public EbeanServer getDatabase() {return null;}
 }

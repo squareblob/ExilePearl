@@ -141,21 +141,4 @@ public class TestConsoleCommandSender implements ConsoleCommandSender {
         conversationTracker.abandonConversation(conversation, details);
 	}
 
-	private final Spigot spigot = new Spigot()
-    {
-        public void sendMessage(net.md_5.bungee.api.chat.BaseComponent component) {
-            throw new UnsupportedOperationException("Not supported yet.");
-        }
-
-        public void sendMessage(net.md_5.bungee.api.chat.BaseComponent... components) {
-            throw new UnsupportedOperationException("Not supported yet.");
-        }
-        
-    };
-	
-	@Override
-	public Spigot spigot() {
-		return spigot;
-	}
-
 }
