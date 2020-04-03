@@ -507,6 +507,11 @@ final class CorePearlConfig implements DocumentConfig, PearlConfig {
 	}
 
 	@Override
+	public boolean allowMultiPearl() {
+		return doc.getBoolean("pearls.allow_multipearl", true);
+	}
+
+	@Override
 	public boolean allowSummoning() {
 		return doc.getBoolean("pearls.allow_summoning", true);
 	}

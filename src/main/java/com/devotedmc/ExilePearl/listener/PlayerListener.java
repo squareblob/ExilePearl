@@ -602,19 +602,21 @@ public class PlayerListener implements Listener, Configurable {
 
 			pearl = pearlApi.exilePlayer(playerId, damager);
 			if (pearl == null) {
-				// Check if player is already exiled
-				// exilePlayer already handles the case where this is a pearl steal
-				// and will not return null if it is, so we don't check that here
-				if (pearlApi.isPlayerExiled(playerId)) {
-					for(Player dmgr : damagers) {
-						if(pearlApi.getPearlConfig().getShouldAnnounceExileLocation()){
-							msg(dmgr, Lang.pearlAlreadyPearledAtLocation, pearlApi.getRealPlayerName(playerId), pearlApi.getPearl(playerId).getLocationDescription());
-						}else{
-							msg(dmgr, Lang.pearlAlreadyPearled, pearlApi.getRealPlayerName(playerId));
+				if (!pearlApi.getPearlConfig().allowMultiPearl()) {
+					// Check if player is already exiled
+					// exilePlayer already handles the case where this is a pearl steal
+					// and will not return null if it is, so we don't check that here
+					if (pearlApi.isPlayerExiled(playerId)) {
+						for(Player dmgr : damagers) {
+							if(pearlApi.getPearlConfig().getShouldAnnounceExileLocation()){
+								msg(dmgr, Lang.pearlAlreadyPearledAtLocation, pearlApi.getRealPlayerName(playerId), pearlApi.getPearl(playerId).getLocationDescription());
+							}else{
+								msg(dmgr, Lang.pearlAlreadyPearled, pearlApi.getRealPlayerName(playerId));
+							}
 						}
 					}
+					return; // The pearling failed for some reason
 				}
-				return; // The pearling failed for some reason
 			}
 			killer = damager;
 			break;

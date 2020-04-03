@@ -176,6 +176,8 @@ public interface PearlConfig extends MySqlConfig, DocumentConfig {
 
 	boolean allowPearlStealing();
 
+	boolean allowMultiPearl();
+
 	boolean allowSummoning();
 
 	/**
